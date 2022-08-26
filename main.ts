@@ -1,22 +1,23 @@
 // Muestra la palabra en la posición de una posicion al azar
 input.onButtonPressed(Button.A, function () {
+    basic.clearScreen()
     posicionPalabra = randint(0, 5)
     basic.showString("" + (palabras[posicionPalabra]))
 })
 input.onButtonPressed(Button.AB, function () {
     if (contador == cantidadVocalesEnPalabras[posicionPalabra]) {
         basic.showIcon(IconNames.Yes)
-        game.addScore(1)
     } else {
         basic.showIcon(IconNames.No)
         basic.showNumber(cantidadVocalesEnPalabras[posicionPalabra])
-        game.gameOver()
+        music.playTone(988, music.beat(BeatFraction.Whole))
+        music.ringTone(988)
     }
 })
 // Contador que incrementa en la medida que presiono el botón.
 input.onButtonPressed(Button.B, function () {
     if (contador == 10) {
-        contador = 0
+        contador = 1
     } else {
         contador += 1
     }
@@ -44,3 +45,4 @@ cantidadVocalesEnPalabras = [
 2,
 3
 ]
+music.setVolume(70)
