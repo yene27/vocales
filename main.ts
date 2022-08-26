@@ -11,7 +11,6 @@ input.onButtonPressed(Button.AB, function () {
         basic.showIcon(IconNames.No)
         basic.showNumber(cantidadVocalesEnPalabras[posicionPalabra])
         music.playTone(988, music.beat(BeatFraction.Whole))
-        music.ringTone(988)
     }
 })
 // Contador que incrementa en la medida que presiono el botón.
